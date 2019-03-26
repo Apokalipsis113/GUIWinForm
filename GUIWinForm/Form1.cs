@@ -130,7 +130,7 @@ namespace GUIWinForm
             catch (Exception e)
             {
                 //telling user about problem
-                MessageBox.Show("Ошибка при попытке загрузки. {0}", e.Message);
+                MessageBox.Show(e.Message);
                 return;
             }
             AddFormFile(list);
@@ -158,7 +158,7 @@ namespace GUIWinForm
             catch (Exception e)
             {
                 //telling user about problem
-                MessageBox.Show("Ошибка при попытке загрузки. {0}", e.Message);
+                MessageBox.Show(e.Message);
                 return;
             }
             AddFormFile(list);
