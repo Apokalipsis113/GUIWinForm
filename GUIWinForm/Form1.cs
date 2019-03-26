@@ -40,8 +40,10 @@ namespace GUIWinForm
         /// internal data storage for checking for changes
         /// </summary>
         private ArrayList data;
+        private double averangeForCheck = -2.22507e-308;
 
         #endregion
+
         #region methods
 
         /// <summary>
@@ -192,7 +194,7 @@ namespace GUIWinForm
             catch (Exception e)
             {
                 //telling user about problem
-                MessageBox.Show("Ошибка при попытке сохранения. {0}", e.Message);
+                MessageBox.Show(e.Message);
                 return;
             }
         }
@@ -222,25 +224,28 @@ namespace GUIWinForm
             catch (Exception e)
             {
                 //telling user about problem
-                MessageBox.Show("Ошибка при попытке сохранения. {0}",e.Message);
+                MessageBox.Show(e.Message);
                 return;
             }           
         }
 
         private void ReDraw()
         {
-            data = Proxy.GetAllData(); //data can be added,deleted or changed by diffirent users, so in nececary to full wipe and redraw
+            ArrayList tmp = Proxy.GetAllData(); //data can be added,deleted or changed by diffirent users, so in nececary to full wipe and redraw
             chart.Series["Data"].Points.Clear();
             chart.Series["AverangeData"].Points.Clear();
             dataGridView.Rows.Clear();
-            for (int i = 0; i < data.Count; i++)
+            for (int i = 0; i < tmp.Count; i++)
             {
-                chart.Series["Data"].Points.AddXY(i, (double)data[i]);
-                dataGridView.Rows.Add(i, (double)data[i]);
+                chart.Series["Data"].Points.AddXY(i, (double)tmp[i]);
+                dataGridView.Rows.Add(i, (double)tmp[i]);
             }
-            chart.Series["AverangeData"].Points.AddXY(0, Proxy.GetAverangeData());
-            chart.Series["AverangeData"].Points.AddXY(Proxy.GetCount() - 1, Proxy.GetAverangeData());
-            lAverangeData.Text = Convert.ToString(Proxy.GetAverangeData());
+            data = tmp;
+            averangeForCheck = Proxy.GetAverangeData();
+            chart.Series["AverangeData"].Points.AddXY(0, averangeForCheck);
+            chart.Series["AverangeData"].Points.AddXY(Proxy.GetCount() - 1, averangeForCheck);
+            lAverangeData.Text = Convert.ToString(averangeForCheck);
+
         }
         #endregion
 
@@ -312,12 +317,18 @@ namespace GUIWinForm
                 timer1.Stop();
         }
 
-        //autotatically called by the timer, redraw tab with data
+        /// <summary>
+        /// There are several methods to get data up  do date from remoted object. One of them it's event, but delegates must be invoked in same thread because of security. 
+        /// So server must handle object fo remoted class and monitor clients and invoke delegates properly. 
+        /// But we used easy way instead - simple timer event with check state and if needed - redraw. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Timer2_Tick(object sender, EventArgs e)
         {
             if (Proxy.GetCount() == 0)
                 return;
-            if (Proxy.GetCount() != data.Count)
+            if (averangeForCheck != Proxy.GetAverangeData())
             {
                 ReDraw();
                 return;

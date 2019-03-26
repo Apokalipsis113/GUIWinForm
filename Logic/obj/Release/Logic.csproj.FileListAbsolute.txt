@@ -1,0 +1,5 @@
+C:\Users\serge\source\repos\GUIWinForm\Logic\obj\Release\Logic.csproj.CoreCompileInputs.cache
+C:\Users\serge\source\repos\GUIWinForm\Logic\bin\Release\Logic.dll
+C:\Users\serge\source\repos\GUIWinForm\Logic\bin\Release\Logic.pdb
+C:\Users\serge\source\repos\GUIWinForm\Logic\obj\Release\Logic.dll
+C:\Users\serge\source\repos\GUIWinForm\Logic\obj\Release\Logic.pdb

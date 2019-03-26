@@ -1,0 +1,14 @@
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.csprojResolveAssemblyReference.cache
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.Form1.resources
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.Launcher.resources
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.csproj.GenerateResource.cache
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.Properties.Resources.resources
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.csproj.CoreCompileInputs.cache
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\bin\Release\GUIWinForm.exe.config
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\bin\Release\GUIWinForm.exe
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\bin\Release\GUIWinForm.pdb
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\bin\Release\Logic.dll
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\bin\Release\Logic.pdb
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.csproj.CopyComplete
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.exe
+C:\Users\serge\source\repos\GUIWinForm\GUIWinForm\obj\Release\GUIWinForm.pdb
